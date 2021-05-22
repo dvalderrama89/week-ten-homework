@@ -1,4 +1,3 @@
-const { it } = require("@jest/globals");
 const Manager = require("../lib/Manager");
 
 describe("Manager", () => {
