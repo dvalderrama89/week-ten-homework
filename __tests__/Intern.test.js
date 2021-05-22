@@ -13,4 +13,22 @@ describe("Intern", () => {
         const actual = intern.getSchool();
         expect(actual).toEqual(expected);
     });
+
+    it("getId should return id=2", () => {
+        const expected = "2";
+        const actual = intern.getId();
+        expect(actual).toEqual(expected);
+    });
+
+    it("getName should return 'Intern Test'", () => {
+        const expected = "Intern Test";
+        const actual = intern.getName();
+        expect(actual).toEqual(expected);
+    });
+
+    it("getEmail should return 'intern@test.com'", () => {
+        const expected = "intern@test.com";
+        const actual = intern.getEmail();
+        expect(actual).toEqual(expected);
+    });
 });
