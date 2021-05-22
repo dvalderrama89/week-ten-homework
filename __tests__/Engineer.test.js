@@ -13,5 +13,5 @@ describe("Engineer", () => {
         const expected = "testGithubUser123";
         const actual = engineer.getGithub();
         expect(actual).toEqual(expected);
-    })
+    });
 });

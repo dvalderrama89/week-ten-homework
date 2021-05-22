@@ -12,5 +12,5 @@ describe("Intern", () => {
         const expected = "UC Test";
         const actual = intern.getSchool();
         expect(actual).toEqual(expected);
-    })
+    });
 });
