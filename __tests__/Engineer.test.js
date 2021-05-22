@@ -1,12 +1,17 @@
-const { expect } = require("@jest/globals");
 const Engineer = require("../lib/Engineer");
 
 describe("Engineer", () => {
-    let engineer = new Engineer("4", "Engineer Test", "engineer@test.com");
+    const engineer = new Engineer("4", "Engineer Test", "engineer@test.com", "testGithubUser123");
 
     it("getRole should return Engineer", () => {
-        let expected = "Engineer";
-        let actual = engineer.getRole();
+        const expected = "Engineer";
+        const actual = engineer.getRole();
         expect(actual).toEqual(expected);
     });
+
+    it("getGithub should return testGithubUser123", () => {
+        const expected = "testGithubUser123";
+        const actual = engineer.getGithub();
+        expect(actual).toEqual(expected);
+    })
 });

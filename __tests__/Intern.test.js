@@ -1,7 +1,7 @@
 const Intern = require("../lib/Intern");
 
 describe("Intern", () => {
-    let intern = new Intern("2", "Intern Test", "intern@test.com", "UC Test")
+    const intern = new Intern("2", "Intern Test", "intern@test.com", "UC Test")
     it("getRole should return Intern", () => {
         const expected = "Intern";
         const actual = intern.getRole();
