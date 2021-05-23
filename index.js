@@ -29,8 +29,7 @@ inquirer
     },
   ])
   .then((data) => {
-    console.log(data);
-    genManagerHTML(data);
+    genManagerHTML(new Manager(data.id, data.managerName, data.email, data.officeNumber));
     addMembers();
 });
 
@@ -78,8 +77,7 @@ function addEngineer(data) {
         },
     ])
     .then((data) => {
-        console.log(data);
-        genEngineerHTML(data);
+        genEngineerHTML(new Engineer(data.id, data.engineerName, data.email, data.githubUsername));
         addMembers();
     });
 }
@@ -89,7 +87,7 @@ function addIntern(data) {
     .prompt([
         {
             type: 'input',
-            name: 'engineerName',
+            name: 'internName',
             message: 'What is your intern\'s name?',
         },
         {
@@ -109,30 +107,30 @@ function addIntern(data) {
         },
     ])
     .then((data) => {
-        genInternHTML(data);
+        genInternHTML(new Intern(data.id, data.internName, data.email, data.school));
         addMembers();
     });
 }
 
 var bodyHTML = '';
-function genManagerHTML(data) {
+function genManagerHTML(manager) {
     bodyHTML +=
         `
-        <div>Manager</div>
+        <div>${manager.getName()}</div>
         `;
 }
 
-function genEngineerHTML(data) {
+function genEngineerHTML(engineer) {
     bodyHTML +=
         `
-        <div>Engineer</div>
+        <div>${engineer.getName()}</div>
         `;
 }
 
-function genInternHTML(data) {
+function genInternHTML(intern) {
     bodyHTML +=
         `
-        <div>Intern</div>
+        <div>${intern.getName()}</div>
         `;
 }
 
