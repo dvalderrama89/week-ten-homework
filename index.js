@@ -43,7 +43,6 @@ function addMembers() {
         choices: ['Engineer', 'Intern', 'I don\'t want to add any more team members'],
     })
     .then((data) => {
-        console.log(data);
         switch(data.memberType) {
             case 'Engineer': addEngineer(data); break;
             case 'Intern': addIntern(data); break;
