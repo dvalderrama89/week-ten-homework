@@ -116,34 +116,74 @@ var bodyHTML = '';
 function genManagerHTML(manager) {
     bodyHTML +=
         `
-        <div>${manager.getName()}</div>
+            <div class="card col s4">
+                <div class="card-content">
+                <h4>${manager.getName()}</h4>
+                <h5>${manager.getRole()}</h5>
+                <ul>
+                    <li>ID: ${manager.getId()}</li>
+                    <li>Email: ${manager.getEmail()}</li>
+                    <li>Office Number: ${manager.getOfficeNumber()}</li>
+                </ul>
+                </div>
+            </div>
         `;
 }
 
 function genEngineerHTML(engineer) {
     bodyHTML +=
         `
-        <div>${engineer.getName()}</div>
+            <div class="card col s4">
+                <div class="card-content">
+                <h4>${engineer.getName()}</h4>
+                <h5>${engineer.getRole()}</h5>
+                <ul>
+                    <li>ID: ${engineer.getId()}</li>
+                    <li>Email: ${engineer.getEmail()}</li>
+                    <li>GitHub: ${engineer.getGithub()}</li>
+                </ul>
+                </div>
+            </div>
         `;
 }
 
 function genInternHTML(intern) {
     bodyHTML +=
         `
-        <div>${intern.getName()}</div>
+            <div class="card col s4">
+                <div class="card-content">
+                <h4>${intern.getName()}</h4>
+                <h5>${intern.getRole()}</h5>
+                <ul>
+                    <li>ID: ${intern.getId()}</li>
+                    <li>Email: ${intern.getEmail()}</li>
+                    <li>School: ${intern.getSchool()}</li>
+                </ul>
+                </div>
+            </div>
         `;
 }
 
 function genPageHTML() {
     let pageHTML = 
-`
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html>
     <head>
         <title>Team organization</title>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     </head>
     <body>
-        ${bodyHTML}
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">My Team</a>
+            </div>
+        </nav>
+        <div class="container row">
+            ${bodyHTML}
+        </div>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </body>
 </html>
 `;
@@ -151,7 +191,7 @@ function genPageHTML() {
 }
 
 function writeHTML(data) {
-    fs.appendFile(`${__dirname}/dist/rendered.html`, data, function (err) {
+    fs.writeFile(`${__dirname}/dist/rendered.html`, data, function (err) {
         if (err) throw err;
         console.log('Saved!');
     });

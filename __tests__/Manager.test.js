@@ -25,4 +25,10 @@ describe("Manager", () => {
         const actual = manager.getEmail();
         expect(actual).toEqual(expected);
     });
+
+    it("getOfficeNumber should return 333", () => {
+        const expected = "333";
+        const actual = manager.getOfficeNumber();
+        expect(actual).toEqual(expected);
+    });
 });
